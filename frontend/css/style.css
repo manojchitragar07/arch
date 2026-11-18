@@ -1,0 +1,675 @@
+/* ==========================================================================
+   PALAIS DE L'AURA // GALLERY OF CONTEMPORARY ART & KINETIC FORMS
+   EDITORIAL MUSEUM COLOR THEME: OBSIDIAN & CHAMPAGNE GILT
+   ========================================================================== */
+
+:root {
+  /* Museum Haute Palette */
+  --bg-dark: #08080a;
+  --bg-surface: rgba(16, 16, 20, 0.85);
+  --bg-card: rgba(22, 21, 26, 0.72);
+  --bg-card-hover: rgba(30, 29, 36, 0.9);
+  
+  /* Luminous Gold Accents */
+  --gold-primary: #d4af37;
+  --gold-light: #e8cf7a;
+  --gold-bronze: #a88a4d;
+  --gold-glow: rgba(212, 175, 55, 0.35);
+  --gold-border: rgba(212, 175, 55, 0.22);
+  --gold-subtle: rgba(212, 175, 55, 0.08);
+
+  /* Museum Alabaster Typography */
+  --text-main: #f7f4ed;
+  --text-cream: #ede8dc;
+  --text-sub: #b8b3a5;
+  --text-dim: #7a766c;
+  --text-muted: #57544d;
+
+  /* Typography Stacks */
+  --font-serif: 'Cormorant Garamond', Garamond, 'Times New Roman', serif;
+  --font-display: 'Cinzel', var(--font-serif);
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Space Mono', 'JetBrains Mono', monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  position: relative;
+  background-color: var(--bg-dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   FIXED VIDEO INSTALLATION VIEWPORT
+   ========================================================================== */
+
+.video-viewport {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  overflow: hidden;
+  background-color: #000;
+  pointer-events: none;
+}
+
+#bgVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  filter: contrast(1.05) brightness(0.95);
+}
+
+/* Warm museum vignette */
+.gallery-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(8, 8, 10, 0.1) 0%,
+    rgba(8, 8, 10, 0.5) 70%,
+    rgba(8, 8, 10, 0.92) 100%
+  );
+  pointer-events: none;
+}
+
+/* Soft bottom fade */
+.soft-gradient-bottom {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(8, 8, 10, 0.95) 0%,
+    rgba(8, 8, 10, 0.4) 35%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   TOP PROGRESS LINE (GOLD GILT)
+   ========================================================================== */
+
+.progress-bar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(212, 175, 55, 0.12);
+  z-index: 100;
+  pointer-events: none;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #a88a4d, #d4af37, #f3e09c);
+  box-shadow: 0 0 10px var(--gold-glow);
+  transition: width 0.05s linear;
+}
+
+/* ==========================================================================
+   SCROLL TRACK FOR KINETIC INSTALLATION (PART 1)
+   ========================================================================== */
+
+.installation-track {
+  position: relative;
+  width: 100%;
+  height: 380vh;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   GALLERY EXHIBITION SECTIONS (PART 2 - FLOWS OVER SCROLLED INSTALLATION)
+   ========================================================================== */
+
+.gallery-content-flow {
+  position: relative;
+  z-index: 30;
+  background: linear-gradient(to bottom, transparent 0%, rgba(8, 8, 10, 0.92) 8%, #08080a 20%);
+  padding-top: 10vh;
+}
+
+.gallery-section {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 6rem 2.5rem;
+}
+
+.section-header {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--gold-border);
+  padding-bottom: 0.35rem;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: var(--text-main);
+  line-height: 1.15;
+  margin-bottom: 1.2rem;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--gold-light);
+  font-weight: 400;
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--text-sub);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   EXHIBITIONS SPOTLIGHT CARD
+   ========================================================================== */
+
+.exhibition-feature-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--gold-border);
+  border-radius: 16px;
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(212, 175, 55, 0.15);
+  margin-bottom: 5rem;
+}
+
+.exhibition-dates {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-primary);
+  margin-bottom: 1.2rem;
+}
+
+.exhibition-title {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.exhibition-body {
+  font-size: 1.02rem;
+  color: var(--text-sub);
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.curator-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.5rem;
+}
+
+.curator-tag strong {
+  color: var(--gold-light);
+}
+
+.exhibition-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  background: rgba(10, 10, 14, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.12);
+  border-radius: 12px;
+  padding: 2.5rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-num {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  color: var(--gold-primary);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--text-sub);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ==========================================================================
+   COLLECTION GRID & FILTER TABS
+   ========================================================================== */
+
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-tab {
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  color: var(--text-sub);
+  padding: 0.55rem 1.4rem;
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-tab:hover {
+  border-color: var(--gold-primary);
+  color: #fff;
+}
+
+.filter-tab.active {
+  background: var(--gold-subtle);
+  border-color: var(--gold-primary);
+  color: var(--gold-primary);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+}
+
+.artworks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 3rem;
+}
+
+.artwork-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  border-radius: 16px;
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.artwork-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold-primary);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(212, 175, 55, 0.18);
+}
+
+/* Museum Picture Frame */
+.artwork-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #050507;
+  border: 3px solid rgba(212, 175, 55, 0.35);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), 0 10px 30px rgba(0, 0, 0, 0.7);
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+
+.artwork-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+}
+
+.artwork-card:hover .artwork-img {
+  transform: scale(1.06);
+  filter: contrast(1.05) brightness(1.05);
+}
+
+.artwork-frame-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8, 8, 10, 0.85) 0%, transparent 40%);
+  opacity: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1.2rem;
+  transition: opacity 0.3s ease;
+}
+
+.artwork-card:hover .artwork-frame-overlay {
+  opacity: 1;
+}
+
+.zoom-hint {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--gold-light);
+  letter-spacing: 0.15em;
+  background: rgba(14, 14, 18, 0.8);
+  border: 1px solid var(--gold-border);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+}
+
+.artwork-cat-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.artwork-title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.25;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+.artwork-artist {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--gold-light);
+  margin-bottom: 1.2rem;
+}
+
+.artwork-meta-list {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.2rem 0;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.artwork-meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+}
+
+.meta-label {
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.meta-value {
+  color: var(--text-cream);
+  font-family: var(--font-mono);
+}
+
+.artwork-desc {
+  font-size: 0.88rem;
+  color: var(--text-sub);
+  line-height: 1.6;
+  font-weight: 300;
+  margin-bottom: 1.8rem;
+  flex-grow: 1;
+}
+
+.artwork-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+}
+
+.artwork-status {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #4ade80;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.artwork-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+}
+
+.acquire-link {
+  color: var(--gold-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--gold-border);
+  padding: 0.4rem 0.9rem;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.acquire-link:hover {
+  background: var(--gold-primary);
+  color: #08080a;
+}
+
+/* ==========================================================================
+   FEATURED ARTISTS ROSTER
+   ========================================================================== */
+
+.artists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.artist-card {
+  background: rgba(14, 14, 18, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 2.2rem;
+  transition: border-color 0.3s ease;
+}
+
+.artist-card:hover {
+  border-color: var(--gold-border);
+}
+
+.artist-name {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 0.3rem;
+}
+
+.artist-location {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--gold-primary);
+  letter-spacing: 0.15em;
+  margin-bottom: 1.2rem;
+}
+
+.artist-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.98rem;
+  color: var(--text-sub);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   VISITING & PAVILIONS SECTION
+   ========================================================================== */
+
+.pavilions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.pavilion-card {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
+  border-radius: 14px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.pavilion-city {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.pavilion-address {
+  font-size: 0.88rem;
+  color: var(--text-sub);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.pavilion-hours {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--gold-light);
+  line-height: 1.8;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.2rem;
+}
+
+/* ==========================================================================
+   MUSEUM FOOTER
+   ========================================================================== */
+
+.gallery-footer {
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  background: #050507;
+  padding: 5rem 2.5rem 3rem;
+  color: var(--text-dim);
+}
+
+.footer-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 3rem;
+  margin-bottom: 2rem;
+}
+
+.footer-brand {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+.footer-meta-note {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--gold-primary);
+  letter-spacing: 0.15em;
+}
+
+.footer-bottom-line {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.76rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .exhibition-feature-card {
+    grid-template-columns: 1fr;
+    padding: 2.5rem;
+    gap: 2.5rem;
+  }
+  .pavilions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery-section {
+    padding: 4rem 1.5rem;
+  }
+  .artworks-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-inner, .footer-bottom-line {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+}

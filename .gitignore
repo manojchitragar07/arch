@@ -1,0 +1,16 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# macOS metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Node / Environment
+node_modules/
+.env
+.venv/
+env/
+venv/

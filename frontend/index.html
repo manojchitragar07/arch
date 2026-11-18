@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PALAIS DE L'AURA // Gallery of Contemporary Art & Kinetic Forms</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/hud.css">
+</head>
+<body>
+
+  <!-- Top Progress Bar (Champagne Gilt) -->
+  <div class="progress-bar-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Background Video Viewport (Centerpiece Kinetic Installation) -->
+  <div class="video-viewport" id="installation">
+    <video 
+      id="bgVideo" 
+      src="assets/videos/optimized_video.mp4" 
+      muted 
+      playsinline 
+      preload="auto"
+      tabindex="-1"
+    ></video>
+    <div class="gallery-vignette"></div>
+    <div class="soft-gradient-bottom"></div>
+  </div>
+
+  <!-- Minimal Museum Header -->
+  <header class="minimal-header">
+    <a href="#" class="brand-logo">
+      PALAIS DE L'AURA
+      <span>GALERIE D'ART • ZURICH // TOKYO</span>
+    </a>
+
+    <nav class="header-nav">
+      <a href="#installation">Installation</a>
+      <a href="#exhibitions">Exhibition</a>
+      <a href="#collection">Collection</a>
+      <a href="#artists">Artists</a>
+      <a href="#visit">Pavilions</a>
+    </nav>
+    
+    <div class="header-controls">
+      <!-- Direction Toggle -->
+      <button id="reverseToggleBtn" class="pill-btn" title="Toggle Installation Direction (Hotkey: I)">
+        <span class="btn-icon">⇄</span>
+        <span id="reverseLabel">Motion: Normal</span>
+      </button>
+
+      <!-- Ambient Gallery Acoustic Synthesizer -->
+      <button id="audioToggleBtn" class="pill-btn" title="Toggle Ambient Gallery Acoustics (Hotkey: M)">
+        <span class="btn-icon">🔊</span>
+        <span class="btn-text">Gallery Sound</span>
+      </button>
+
+      <!-- Collector Inquiry CTA -->
+      <button class="pill-btn inquire-btn open-modal-btn">
+        <span>Acquire / Inquire</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Part 1: Floating Kinetic Installation Captions -->
+  <div class="captions-wrapper" id="captionsWrapper">
+    
+    <!-- Step 0: Exhibition Entrance -->
+    <div class="caption-card active" id="cap0">
+      <div class="caption-tag">PERMANENT INSTALLATION // ROTUNDA I</div>
+      <h1 class="caption-headline">MONOLITH IN <em>PERPETUAL MOTION</em></h1>
+      <p class="caption-sub">Valentin Vaneau, 2026. Kinetic titanium sculpture suspended in celestial tension. Scroll down to initiate kinetic progression.</p>
+      <div class="scroll-hint">
+        <span class="scroll-arrow">↓</span>
+        <span>SCROLL TO TRAVERSE THE EXHIBITION</span>
+      </div>
+    </div>
+
+    <!-- Step 1: Structural Tension -->
+    <div class="caption-card" id="cap1">
+      <div class="caption-tag">ROOM 02 // TENSION & LIGHT</div>
+      <h2 class="caption-headline">THE GEOMETRY OF <em>THE INTANGIBLE</em></h2>
+      <p class="caption-sub">Aerodynamic curves deflecting ambient atmospheric light. A dialogue between structural gravity and sculptural weightlessness.</p>
+    </div>
+
+    <!-- Step 2: Living Biosphere -->
+    <div class="caption-card" id="cap2">
+      <div class="caption-tag">ROOM 03 // SYMBIOSIS</div>
+      <h2 class="caption-headline">SUSPENDED <em>BIOPHILIC SANCTUARY</em></h2>
+      <p class="caption-sub">Living photosynthetic ecosystems integrated across monumental spatial terraces, breathing in harmonic cadence.</p>
+    </div>
+
+    <!-- Step 3: Transition to Gallery Halls -->
+    <div class="caption-card" id="cap3">
+      <div class="caption-tag">ROOM 04 // THE HORIZON</div>
+      <h2 class="caption-headline">THE CONTEMPORARY <em>COLLECTION</em></h2>
+      <p class="caption-sub">Continue scrolling down to explore curated masterworks, artist monographs, and private collector viewing rooms.</p>
+    </div>
+
+  </div>
+
+  <!-- Telemetry HUD in Corner -->
+  <div class="minimal-hud" id="minimalHud">
+    <span id="hudTime">00:00.00 / 00:10.00</span>
+    <span class="hud-sep">•</span>
+    <span id="hudPercent">0%</span>
+  </div>
+
+  <!-- Installation Scroll Track (Drives 380vh of video seeking) -->
+  <div class="installation-track"></div>
+
+  <!-- Part 2: Curated Art Gallery Exhibition Sections (Flows seamlessly over the installation) -->
+  <main class="gallery-content-flow" id="galleryMain">
+
+    <!-- CURRENT EXHIBITION SPOTLIGHT -->
+    <section class="gallery-section" id="exhibitions">
+      <div class="section-header">
+        <span class="section-label">CURRENT EXHIBITION // GLOBAL PAVILIONS</span>
+        <h2 class="section-title">FORMS IN <em>SUSPENSION</em></h2>
+        <p class="section-desc">
+          An international retrospective bringing together monumental sculpture, harmonic kineticism, and celestial architectural forms from our private collection and invited artists.
+        </p>
+      </div>
+
+      <div class="exhibition-feature-card">
+        <div class="exhibition-info">
+          <div class="exhibition-dates">NOVEMBER 15, 2026 – MARCH 28, 2027</div>
+          <h3 class="exhibition-title">The Architecture of Light & Perpetual Motion</h3>
+          <p class="exhibition-body">
+            Curated by Madame Vivienne Laurent, this landmark exhibition unites six celebrated international master sculptors exploring continuous kinetic form, light refraction, and structural eternity. Features site-specific commissions designed exclusively for the Palais de l'AURA.
+          </p>
+          <div class="curator-tag">
+            <span>CURATOR:</span>
+            <strong>MME. VIVIENNE LAURENT</strong>
+            <span>// PALAIS DE L'AURA, ZURICH</span>
+          </div>
+        </div>
+
+        <div class="exhibition-stats">
+          <div class="stat-item">
+            <span class="stat-num">06</span>
+            <span class="stat-label">Monumental Commissions</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">24</span>
+            <span class="stat-label">Permanent Masterworks</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">840m</span>
+            <span class="stat-label">Pinnacle Kinetic Height</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Solar-Powered Kinetics</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURATED ARTWORKS COLLECTION -->
+    <section class="gallery-section" id="collection">
+      <div class="section-header">
+        <span class="section-label">PERMANENT & AVAILABLE ACQUISITIONS</span>
+        <h2 class="section-title">THE CURATED <em>COLLECTION</em></h2>
+        <p class="section-desc">
+          Explore masterworks on display across our international pavilions. Select any piece to examine curatorial specifications or request private acquisition documentation.
+        </p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-tab active" data-category="all">All Masterworks (6)</button>
+        <button class="filter-tab" data-category="Classical Still Life">Classical Still Life (3)</button>
+        <button class="filter-tab" data-category="Atmospheric Landscape">Atmospheric Landscape (2)</button>
+        <button class="filter-tab" data-category="Allegory & Vanitas">Allegory & Vanitas (1)</button>
+      </div>
+
+      <!-- Artworks Grid (Populated dynamically via /api/artworks) -->
+      <div class="artworks-grid" id="artworksGrid">
+        <!-- Rendered via js/ui.js with backend sync -->
+      </div>
+    </section>
+
+    <!-- FEATURED ARTISTS ROSTER -->
+    <section class="gallery-section" id="artists">
+      <div class="section-header">
+        <span class="section-label">ARTIST ROSTER // MONOGRAPHS</span>
+        <h2 class="section-title">REPRESENTED <em>MASTERS</em></h2>
+        <p class="section-desc">
+          Our represented creators bridge high engineering, spatial philosophy, and poetic physical materiality.
+        </p>
+      </div>
+
+      <div class="artists-grid">
+        <div class="artist-card">
+          <h3 class="artist-name">Valentin Vaneau</h3>
+          <div class="artist-location">LYON // TOKYO</div>
+          <p class="artist-quote">
+            "Structure is not merely static support; it is light rendered immortal through perpetual mechanical rhythm."
+          </p>
+        </div>
+
+        <div class="artist-card">
+          <h3 class="artist-name">Elena Rostova</h3>
+          <div class="artist-location">ZURICH // VENICE</div>
+          <p class="artist-quote">
+            "Light possesses weight and memory. When cast through optical crystal, it alters the emotional resonance of empty space."
+          </p>
+        </div>
+
+        <div class="artist-card">
+          <h3 class="artist-name">Kenzo Takahashi</h3>
+          <div class="artist-location">KYOTO // LONDON</div>
+          <p class="artist-quote">
+            "Carbon fiber and liquid mercury mirror allow us to construct monuments that appear as fragile as a breath yet endure for centuries."
+          </p>
+        </div>
+
+        <div class="artist-card">
+          <h3 class="artist-name">Dr. Sarah Al-Mansoor</h3>
+          <div class="artist-location">DUBAI // BERLIN</div>
+          <p class="artist-quote">
+            "The museum of the future must be alive. Biological sculptures purify the air and synchronize with the heartbeats of those who stand before them."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GLOBAL PAVILIONS & VISITING CONCIERGE -->
+    <section class="gallery-section" id="visit">
+      <div class="section-header">
+        <span class="section-label">GLOBAL PRESENCE // PRIVATE VIEWINGS</span>
+        <h2 class="section-title">VISIT THE <em>PAVILIONS</em></h2>
+        <p class="section-desc">
+          Admission to general exhibitions is by reservation. Private salon viewing rooms and curator tours are arranged through our collector services concierge.
+        </p>
+      </div>
+
+      <div class="pavilions-grid">
+        <div class="pavilion-card">
+          <h3 class="pavilion-city">Zurich</h3>
+          <p class="pavilion-address">Bahnhofstrasse 42, 8001 Zürich, Switzerland<br>Overlooking Lake Zurich</p>
+          <div class="pavilion-hours">
+            TUESDAY – SUNDAY: 10:00 – 19:00<br>
+            PRIVATE VIEWINGS: 19:00 – 22:00
+          </div>
+        </div>
+
+        <div class="pavilion-card">
+          <h3 class="pavilion-city">Tokyo</h3>
+          <p class="pavilion-address">Ginza 6-Chome, Chuo City, Tokyo 104-0061<br>The High Sanctuary Tower</p>
+          <div class="pavilion-hours">
+            DAILY: 11:00 – 20:00<br>
+            CEREMONY & SALON: BY INVITATION
+          </div>
+        </div>
+
+        <div class="pavilion-card">
+          <h3 class="pavilion-city">Paris</h3>
+          <p class="pavilion-address">18 Place Vendôme, 75001 Paris, France<br>Hôtel Particulier d'Aura</p>
+          <div class="pavilion-hours">
+            WEDNESDAY – MONDAY: 10:00 – 18:30<br>
+            NOCTURNE EXHIBITION: THURSDAY TO 22:00
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Museum Footer -->
+  <footer class="gallery-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        PALAIS DE L'AURA
+        <div class="footer-meta-note">FOUNDATION FOR CONTEMPORARY KINETIC ART</div>
+      </div>
+      <div class="footer-links">
+        <button class="pill-btn inquire-btn open-modal-btn">Collector Services Concierge</button>
+      </div>
+    </div>
+    <div class="footer-bottom-line">
+      <span>&copy; 2026–2027 PALAIS DE L'AURA FOUNDATION. ALL CURATORIAL RIGHTS RESERVED.</span>
+      <span>ZURICH // TOKYO // PARIS // NEW YORK</span>
+    </div>
+  </footer>
+
+  <!-- High-Resolution Artwork Inspection Lightbox -->
+  <div class="lightbox-overlay" id="artworkLightbox">
+    <div class="lightbox-container">
+      <button class="lightbox-close" id="closeLightboxBtn" title="Close Lightbox (Esc)">&times;</button>
+      <div class="lightbox-media" id="lightboxMedia">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="lightbox-details">
+        <div class="lightbox-tag" id="lightboxTag">CAT-01 // STILL LIFE</div>
+        <h2 class="lightbox-title" id="lightboxTitle">Artwork Title</h2>
+        <div class="lightbox-artist" id="lightboxArtist">Artist Name</div>
+        <p class="lightbox-desc" id="lightboxDesc">Description</p>
+        <div class="lightbox-specs" id="lightboxSpecs">
+          <!-- Specs rendered dynamically -->
+        </div>
+        <button class="action-btn open-modal-btn" id="lightboxAcquireBtn">
+          Acquire / Inquire via Concierge →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Collector Acquisition & Private Viewing Modal -->
+  <div class="modal-overlay" id="inquiryModal">
+    <div class="modal-card">
+      <button class="modal-close" id="closeModalBtn" title="Close (Esc)">&times;</button>
+      <h3 class="modal-title">Collector Concierge</h3>
+      <p class="modal-desc">Please register your credentials for private exhibition viewings, authenticated provenance dossiers, or acquisition documentation.</p>
+      
+      <form id="inquiryForm">
+        <div class="form-group">
+          <label for="modalName">Full Name</label>
+          <input type="text" id="modalName" placeholder="e.g. Lady Genevieve Vance" required>
+        </div>
+        <div class="form-group">
+          <label for="modalEmail">Direct Email</label>
+          <input type="email" id="modalEmail" placeholder="genevieve@vance-holdings.com" required>
+        </div>
+        <div class="form-group">
+          <label for="modalArtwork">Artwork of Interest</label>
+          <select id="modalArtwork">
+            <option value="General Collection Inquiry">General Collection Inquiry</option>
+            <option value="Symphonie Florale en Vase de Bronze (Willem van Aelst Circle)">Symphonie Florale en Vase de Bronze (Willem van Aelst Circle)</option>
+            <option value="Allegory of Transience with White Peacock (Giulia Valente)">Allegory of Transience with White Peacock (Giulia Valente)</option>
+            <option value="Le Banquet au Cacatoès Blanc (Frans Snyders Circle)">Le Banquet au Cacatoès Blanc (Frans Snyders Circle)</option>
+            <option value="Sentinel of the Autumn Wind (Maren Lindström)">Sentinel of the Autumn Wind (Maren Lindström)</option>
+            <option value="Alpine Pastoral with Village Chapel (Austrian Romanticist School)">Alpine Pastoral with Village Chapel (Austrian Romanticist School)</option>
+            <option value="Still Life with Burst Pomegranates (Jan Davidsz. de Heem Studio)">Still Life with Burst Pomegranates (Jan Davidsz. de Heem Studio)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="modalCity">Preferred Pavilion Location</label>
+          <select id="modalCity">
+            <option value="Zurich">Zurich Pavilion // Switzerland</option>
+            <option value="Tokyo">Tokyo Pavilion // Ginza</option>
+            <option value="Paris">Paris Salon // Place Vendôme</option>
+            <option value="Virtual">Confidential Virtual Salon</option>
+          </select>
+        </div>
+        <button type="submit" class="action-btn modal-submit" id="submitModalBtn">
+          Request Confidential Dossier →
+        </button>
+      </form>
+      <div class="modal-feedback" id="modalFeedback"></div>
+    </div>
+  </div>
+
+  <!-- Modular Scripts -->
+  <script src="js/audio-synth.js"></script>
+  <script src="js/video-engine.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
