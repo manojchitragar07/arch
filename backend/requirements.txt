@@ -1,4 +1,3 @@
-# AURA Backend Requirements
-# The backend is built completely on Python 3 standard library modules.
-# No third-party pip dependencies are required.
-python>=3.8
+# AURA Architecture & Art Gallery Backend
+# Built entirely with Python 3 standard library modules.
+# No third-party PyPI dependencies required.
